@@ -8,6 +8,8 @@ import Home from './components/home';
 import Posts from './components/posts';
 import Profile from './components/profile';
 import PostItem from "./components/post_item";
+import Error from "./components/error";
+import LifeCycle from "./components/lifeCycle";
 
 
 const App = ()=>{
@@ -20,13 +22,16 @@ const App = ()=>{
           <NavLink to={{
             pathname: "/profile"
           }}>Profile</NavLink><br/>
+          <NavLink to="/lifeCycle">Life Cycle</NavLink>
           <hr/>
         </header>
         <Switch>
           <Route path="/posts/:id" component={PostItem}/>
           <Route path="/posts" component={Posts}/>
+          <Route path="/lifeCycle" component={LifeCycle}/>
           <Route path="/profile" component={Profile}/>
-          <Route path="/" component={Home}/>
+          <Route path="/" exact component={Home}/>
+          <Route component={Error}/>
         </Switch>
         </div>
     </BrowserRouter>
